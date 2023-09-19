@@ -1,5 +1,6 @@
 import express from "express";
 import { createProxyMiddleware } from "http-proxy-middleware";
+import path from "path";
 
 export const serve = (port: number, filename: string, dir: string) => {
   const app = express();
@@ -12,7 +13,11 @@ export const serve = (port: number, filename: string, dir: string) => {
   //   })
   // );
 
-  app.use(express.static("../../local-client/build"));
+  const packagePath = require.resolve("local-client/build/index.html");
+
+  console.log("packagePath: ", packagePath);
+
+  app.use(express.static(path.dirname(packagePath)));
 
   return new Promise<void>((resolve, reject) => {
     app.listen(port, resolve).on("error", reject);
