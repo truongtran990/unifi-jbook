@@ -2,6 +2,13 @@
   "name": "jbook-truongtran99",
   "version": "1.0.0",
   "description": "",
+  "bin": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "tsc --watch --preserveWatchOutput"
