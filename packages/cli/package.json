@@ -1,20 +1,31 @@
 {
-  "name": "cli",
-  "version": "1.0.0",
+  "name": "jbook-truongtran99",
+  "version": "1.0.3",
   "description": "",
+  "bin": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc --watch --preserveWatchOutput"
+    "start": "tsc --watch --preserveWatchOutput",
+    "prepublishOnly": "esbuild src/index.ts --platform=node --outfile=dist/index.js --bundle --minify --define:process.env.NODE_ENV=\"'production'\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "commander": "^11.0.0",
-    "local-api": "^1.0.0"
+    "@jbook-truongtran99/local-client": "^1.0.3"
   },
   "devDependencies": {
+    "@jbook-truongtran99/local-api": "^1.0.3",
     "@types/node": "^20.5.6",
+    "commander": "^11.0.0",
+    "esbuild": "0.8.26",
     "typescript": "^5.2.2"
-  }
+  },
+  "gitHead": "38b36d5603a8cd5397779ddcb9f7b1e56c9f8f4f"
 }
